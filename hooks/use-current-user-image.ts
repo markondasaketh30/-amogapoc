@@ -8,7 +8,9 @@ export const useCurrentUserImage = () => {
   useEffect(() => {
     const fetchUserImage = async () => {
       try {
-        const { data, error } = await createClient().auth.getSession()
+        const supabase = createClient()
+        if (!supabase) return
+        const { data, error } = await supabase.auth.getSession()
         if (error) {
           console.error(error)
         }

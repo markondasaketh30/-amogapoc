@@ -16,6 +16,10 @@ export function useAuthCheck() {
     const checkAuth = async () => {
       try {
         const supabase = createClient()
+        if (!supabase) {
+          setUser(null)
+          return
+        }
 
         const {
           data: { session }

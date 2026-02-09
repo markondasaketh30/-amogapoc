@@ -8,7 +8,12 @@ export const useCurrentUserName = () => {
   useEffect(() => {
     const fetchProfileName = async () => {
       try {
-        const { data, error } = await createClient().auth.getSession()
+        const supabase = createClient()
+        if (!supabase) {
+          setName('Anonymous')
+          return
+        }
+        const { data, error } = await supabase.auth.getSession()
         if (error) {
           console.error(error)
         }

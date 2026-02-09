@@ -20,9 +20,11 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     const supabase = createClient()
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user)
-    })
+    if (supabase) {
+      supabase.auth.getUser().then(({ data }) => {
+        setUser(data.user)
+      })
+    }
   }, [])
   const { open } = useSidebar()
   const pathname = usePathname()
