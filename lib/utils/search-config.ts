@@ -5,18 +5,18 @@
 
 /**
  * Checks if a dedicated "general" search provider is available
- * Currently checks for Brave Search, but can be extended for other providers
+ * Checks for Serper (Google SERP) API key
  */
 export function isGeneralSearchProviderAvailable(): boolean {
-  return !!process.env.BRAVE_SEARCH_API_KEY
+  return !!process.env.SERPER_API_KEY
 }
 
 /**
  * Gets the name of the current general search provider
  */
 export function getGeneralSearchProviderName(): string {
-  if (process.env.BRAVE_SEARCH_API_KEY) {
-    return 'Brave Search'
+  if (process.env.SERPER_API_KEY) {
+    return 'Serper (Google Search)'
   }
   return 'primary provider'
 }
@@ -25,8 +25,8 @@ export function getGeneralSearchProviderName(): string {
  * Checks if the general search provider supports multimedia content types
  */
 export function supportsMultimediaContentTypes(): boolean {
-  // Currently only Brave supports video/image content_types
-  return !!process.env.BRAVE_SEARCH_API_KEY
+  // Serper supports video/image/news content_types via Google SERP
+  return !!process.env.SERPER_API_KEY
 }
 
 /**
@@ -37,7 +37,7 @@ export function getSearchTypeDescription(): string {
   const providerName = getGeneralSearchProviderName()
 
   if (hasGeneralProvider) {
-    return `Search type: general for ${providerName} (supports video/image with content_types, basic results may need fetch for details), optimized for AI-focused providers with content snippets (Tavily/Exa/SearXNG)`
+    return `Search type: general for ${providerName} (supports video/image/news with content_types, basic results may need fetch for details), optimized for AI-focused providers with content snippets (Tavily/Exa/SearXNG)`
   } else {
     return 'Search type: general and optimized both use the primary AI-focused provider (Tavily/Exa/SearXNG) with content snippets. Note: video/image content_types require a dedicated general search provider (not configured)'
   }
@@ -72,6 +72,7 @@ export function getContentTypesGuidance(): string {
     - Today's news, current events, recent updates
     - Videos: content_types: ['video'] or ['web', 'video']
     - Images: content_types: ['image'] or ['web', 'image']
+    - News: content_types: ['news'] or ['web', 'news']
     - When you need the LATEST information where recency matters
   - Pattern: type="general" search → identify sources → fetch for content`
   } else {
@@ -108,11 +109,11 @@ export function getSearchStrategyGuidance(): string {
 
 /**
  * Gets the appropriate search provider type for "general" searches
- * Returns 'brave' if available, otherwise null to indicate fallback
+ * Returns 'serper' if available, otherwise null to indicate fallback
  */
-export function getGeneralSearchProviderType(): 'brave' | null {
-  if (process.env.BRAVE_SEARCH_API_KEY) {
-    return 'brave'
+export function getGeneralSearchProviderType(): 'serper' | null {
+  if (process.env.SERPER_API_KEY) {
+    return 'serper'
   }
   return null
 }

@@ -202,25 +202,26 @@ For detailed configuration options, refer to the [SearXNG documentation](https:/
 docker-compose logs searxng
 ```
 
-### Brave Search (Optional)
+### Serper - Google SERP API (Optional)
 
-Brave Search provides enhanced support for video and image searches when used as a general search provider:
+Serper provides enhanced support for video, image, and news searches via Google SERP when used as a general search provider:
 
 ```bash
-BRAVE_SEARCH_API_KEY=[YOUR_BRAVE_SEARCH_API_KEY]
+SERPER_API_KEY=[YOUR_SERPER_API_KEY]
 ```
 
-Get your API key at: https://brave.com/search/api/
+Get your API key at: https://serper.dev/ (Free tier: 2500 queries/month)
 
 **Features:**
 
 - Multiple content types in single search (web, video, image, news)
-- Optimized for multimedia content with thumbnails
-- Direct video duration and metadata support
+- Google SERP results with thumbnails and rich metadata
+- Direct video duration, channel, and metadata support
 - Used automatically when `type="general"` is specified in search queries
+- Works great on Vercel serverless deployments
 
 **Fallback Behavior:**
-If `BRAVE_SEARCH_API_KEY` is not configured, `type="general"` searches will automatically fall back to your configured optimized search provider. Video and image searches will still work but may have limited multimedia support depending on the provider.
+If `SERPER_API_KEY` is not configured, `type="general"` searches will automatically fall back to your configured optimized search provider. Video and image searches will still work but may have limited multimedia support depending on the provider.
 
 ## Additional AI Providers
 

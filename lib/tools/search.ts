@@ -110,8 +110,8 @@ export function createSearchTool(fullModel: string) {
           // Use the provider factory to get the appropriate search provider
           const searchProvider = createSearchProvider(searchAPI)
 
-          // Pass content_types only for Brave provider
-          if (searchAPI === 'brave') {
+          // Pass content_types for Serper provider (supports web/video/image/news)
+          if (searchAPI === 'serper') {
             searchResult = await searchProvider.search(
               filledQuery,
               effectiveMaxResults,

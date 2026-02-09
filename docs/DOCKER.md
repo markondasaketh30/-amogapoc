@@ -16,7 +16,7 @@ Edit `.env.local` and set the required variables:
 DATABASE_URL=postgresql://morphic:morphic@postgres:5432/morphic
 OPENAI_API_KEY=your_openai_key
 TAVILY_API_KEY=your_tavily_key
-BRAVE_SEARCH_API_KEY=your_brave_key
+SERPER_API_KEY=your_serper_key
 ```
 
 **Note**: Authentication is disabled by default (`ENABLE_AUTH=false` in `.env.local.example`).

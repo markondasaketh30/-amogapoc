@@ -99,7 +99,7 @@ Models are configured in `config/models/*.json` with profile-based settings. Whe
 
 - [OpenAI](https://openai.com/) - Default AI provider (Optional: Google AI, Anthropic)
 - [Tavily AI](https://tavily.com/) - AI-optimized search with context
-- [Brave Search](https://brave.com/search/api/) - Traditional web search results
+- [Serper](https://serper.dev/) - Google SERP API for web, video, image, and news search
 - Tavily alternatives:
   - [SearXNG](https://docs.searxng.org/) - Self-hosted search
   - [Exa](https://exa.ai/) - Meaning-based search powered by embeddings
@@ -164,7 +164,7 @@ Host your own live version of Morphic with Vercel or Docker.
 
 ### Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Fmorphic&env=DATABASE_URL,OPENAI_API_KEY,TAVILY_API_KEY,BRAVE_SEARCH_API_KEY)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Fmorphic&env=DATABASE_URL,OPENAI_API_KEY,TAVILY_API_KEY,SERPER_API_KEY)
 
 **Note**: For Vercel deployments, set `ENABLE_AUTH=true` and configure Supabase authentication to secure your deployment.
 

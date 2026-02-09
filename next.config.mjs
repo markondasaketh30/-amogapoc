@@ -16,9 +16,9 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'imgs.search.brave.com',
+        hostname: 'encrypted-tbn0.gstatic.com',
         port: '',
-        pathname: '/**' // Brave search cached images
+        pathname: '/**' // Google image thumbnails (Serper)
       },
       {
         protocol: 'https',
